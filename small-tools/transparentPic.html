@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片变透明</title>
+</head>
+<body>
+
+
+
+
+
+<input type="file" id="upFile" name="test" accept="image/gif, image/jpeg, image/png, image/jpg">
+<input type="text" id="redId">
+<input type="text" id="greenId">
+<input type="text" id="blueId">
+<button id="upBtn">提交</button>
+<br>
+<canvas id='myCanvas' style="background-color: #000">
+
+<script>
+    document.getElementById("upBtn").onclick = function () {
+        let upFile = document.getElementById("upFile").files[0];
+        let redId = parseInt(document.getElementById("redId").value);
+        let greenId = parseInt(document.getElementById("greenId").value);
+        let blueId = parseInt(document.getElementById("blueId").value);
+        let fr = new FileReader();
+        fr.readAsDataURL(upFile);
+        fr.onload = function () {
+            let c = document.getElementById("myCanvas");
+            if (c.getContext) {
+                let img = document.createElement("img");
+                img.src = this.result;
+                img.onload = function () {
+                    c.width = img.width;
+                    c.height = img.height;
+                    let ctx = c.getContext("2d");
+                    ctx.drawImage(img, 0, 0);
+                    let imageD = ctx.getImageData(0, 0, img.width, img.height);
+                    let pData = imageD.data;
+                    for (let i = 0; i < pData.length; i = i + 4) {
+                        if (pData[i] === redId && pData[i + 1] === greenId && pData[i + 2] === blueId) {
+                            pData[i + 3] = 0;
+                        }
+                    }
+                    ctx.putImageData(imageD, 0, 0);
+                }
+            }
+
+        }
+    };
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
