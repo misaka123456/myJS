@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/myJS.iml" filepath="$PROJECT_DIR$/.idea/myJS.iml" />
       <module fileurl="file://$PROJECT_DIR$/sif-card/sif-card.iml" filepath="$PROJECT_DIR$/sif-card/sif-card.iml" />
+      <module fileurl="file://$PROJECT_DIR$/website-code/website-code.iml" filepath="$PROJECT_DIR$/website-code/website-code.iml" />
     </modules>
   </component>
 </project>
