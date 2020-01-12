@@ -55,20 +55,19 @@ function downCard(unit_number) {
                     urlDom.innerHTML = urlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/card/non-frame/" + dd["card_id"][0] + ".png</p>";
                     weijueUrlDom.innerHTML = weijueUrlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/figure/normal/" + unit_number + ".png</p>";
                     if (dd["card_id"].length === 2) {
-                        nameDom.innerHTML = nameDom.innerHTML + "<p>" + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")</p>"
-                            +"<p>" +  dd["card_id"][1] + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")</p>";
+                        nameDom.innerHTML = nameDom.innerHTML + "<p>" + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>"
+                            +"<p>" +  dd["card_id"][1] + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
                         urlDom.innerHTML = urlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/card/non-frame/" + dd["card_id"][1] + ".png</p>";
 
-                        weijueNameDom.innerHTML = weijueNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")</p>";
-                        juexingNameDom.innerHTML =  juexingNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")</p>";
+                        weijueNameDom.innerHTML = weijueNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
+                        juexingNameDom.innerHTML =  juexingNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
                         juexingUrlDom.innerHTML = juexingUrlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/figure/rankup/" + unit_number + ".png</p>";
                     } else {
-                        nameDom.innerHTML = nameDom.innerHTML + "<p>" + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")</p>";
-                        weijueNameDom.innerHTML = weijueNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")</p>";
+                        nameDom.innerHTML = nameDom.innerHTML + "<p>" + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
+                        weijueNameDom.innerHTML = weijueNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
 
                     }
                     console.log(unit_number);
-
                 } else {
                     alert('数据获取失败');
                 }
