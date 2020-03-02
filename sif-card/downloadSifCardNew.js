@@ -5,12 +5,12 @@ let weijueUrlDom = document.createElement("div");
 let juexingNameDom = document.createElement("div");
 let juexingUrlDom = document.createElement("div");
 
-document.getElementById("menu-shadow").appendChild(nameDom);
-document.getElementById("menu-shadow").appendChild(urlDom);
-document.getElementById("menu-shadow").appendChild(weijueNameDom);
-document.getElementById("menu-shadow").appendChild(weijueUrlDom);
-document.getElementById("menu-shadow").appendChild(juexingNameDom);
-document.getElementById("menu-shadow").appendChild(juexingUrlDom);
+document.getElementById("background").appendChild(nameDom);
+document.getElementById("background").appendChild(urlDom);
+document.getElementById("background").appendChild(weijueNameDom);
+document.getElementById("background").appendChild(weijueUrlDom);
+document.getElementById("background").appendChild(juexingNameDom);
+document.getElementById("background").appendChild(juexingUrlDom);
 
 
 let content = document.getElementById("section-content");
@@ -21,25 +21,29 @@ for (let i = 0; i < childNodes.length; i++) {
 
 function downCard(unit_number) {
 
-    let post_content =
-        "function=get_unit_detail" +
-        "&unit_number=" + unit_number;
-
     let xml_http;
     if (window.XMLHttpRequest) {
         xml_http = new XMLHttpRequest();
     } else {
         xml_http = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xml_http.open("POST", "api/units_api.php", true);
+    xml_http.open("POST", "api/index.php", true);
+
     xml_http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xml_http.send(post_content);
+
+    xml_http.send(JSON.stringify({
+                    'page': 'cards',
+                    'theme_id': 1,
+                    'function': 'get_card_information',
+                    'card_id': unit_number
+                }));
+
     xml_http.onreadystatechange = function () {
         if (xml_http.readyState === 4 && xml_http.status === 200) {
             try {
                 let data = JSON.parse(xml_http.responseText);
-                if (data['status'] === 200) {
-                    let dd = data['unit_data'];
+                if (data['status'] === "success") {
+                    let dd = data['response']['card_information'];
                     let type;
                     if (dd['type'] === '1') {
                         type = '通常卡';
