@@ -45,30 +45,30 @@ function downCard(unit_number) {
                 if (data['status'] === "success") {
                     let dd = data['response']['card_information'];
                     let type;
-                    if (dd['type'] === '1') {
+                    if (dd['type'] === 1) {
                         type = '通常卡';
-                    } else if (dd['type'] === '2') {
+                    } else if (dd['type'] === 2) {
                         type = '活动卡';
-                    } else if (dd['type'] === '3') {
+                    } else if (dd['type'] === 3) {
                         type = '特典卡';
-                    } else if (dd['type'] === '4') {
+                    } else if (dd['type'] === 4) {
                         type = '练习卡';
                     } else {
                         type = 'BOX卡';
                     }
-                    urlDom.innerHTML = urlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/card/non-frame/" + dd["card_id"][0] + ".png</p>";
-                    weijueUrlDom.innerHTML = weijueUrlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/figure/normal/" + unit_number + ".png</p>";
+                    urlDom.innerHTML = urlDom.innerHTML + "https://image.mabo.ai/lovelive/units/card/non-frame/" + dd["card_id"][0] + ".png<br>";
+                    weijueUrlDom.innerHTML = weijueUrlDom.innerHTML +  "https://image.mabo.ai/lovelive/units/figure/normal/" + unit_number + ".png<br>";
                     if (dd["card_id"].length === 2) {
-                        nameDom.innerHTML = nameDom.innerHTML + "<p>" + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>"
-                            +"<p>" +  dd["card_id"][1] + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
-                        urlDom.innerHTML = urlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/card/non-frame/" + dd["card_id"][1] + ".png</p>";
+                        nameDom.innerHTML = nameDom.innerHTML  + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"<br>"
+                             +  dd["card_id"][1] + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"<br>";
+                        urlDom.innerHTML = urlDom.innerHTML  + "https://image.mabo.ai/lovelive/units/card/non-frame/" + dd["card_id"][1] + ".png<br>";
 
-                        weijueNameDom.innerHTML = weijueNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
-                        juexingNameDom.innerHTML =  juexingNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
-                        juexingUrlDom.innerHTML = juexingUrlDom.innerHTML + "<p>" + "https://image.mabo.ink/lovelive/units/figure/rankup/" + unit_number + ".png</p>";
+                        weijueNameDom.innerHTML = weijueNameDom.innerHTML  + unit_number + "-" + type + "-" + dd["set"] + "-普通-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"<br>";
+                        juexingNameDom.innerHTML =  juexingNameDom.innerHTML  + unit_number + "-" + type + "-" + dd["set"] + "-觉醒-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"<br>";
+                        juexingUrlDom.innerHTML = juexingUrlDom.innerHTML  + "https://image.mabo.ai/lovelive/units/figure/rankup/" + unit_number + ".png<br>";
                     } else {
-                        nameDom.innerHTML = nameDom.innerHTML + "<p>" + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
-                        weijueNameDom.innerHTML = weijueNameDom.innerHTML + "<p>" + unit_number + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"</p>";
+                        nameDom.innerHTML = nameDom.innerHTML  + dd["card_id"][0] + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"<br>";
+                        weijueNameDom.innerHTML = weijueNameDom.innerHTML  + unit_number + "-" + type + "-" + dd["set"] + "-" + dd["name"]+"("+dd["nickname"]+")-"+dd["eponym"]+"<br>";
 
                     }
                     console.log(unit_number);
