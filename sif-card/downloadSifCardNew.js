@@ -32,11 +32,11 @@ function downCard(unit_number) {
     xml_http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 
     xml_http.send(JSON.stringify({
-                    'page': 'cards',
-                    'theme_id': 1,
-                    'function': 'get_card_information',
-                    'card_id': unit_number
-                }));
+        'page': 'cards',
+        'theme_id': 1,
+        'function': 'get_card_information',
+        'card_id': unit_number
+    }));
 
     xml_http.onreadystatechange = function () {
         if (xml_http.readyState === 4 && xml_http.status === 200) {

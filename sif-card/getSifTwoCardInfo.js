@@ -2,9 +2,10 @@ let idDom = document.createElement("div");
 let setDom = document.createElement("div");
 document.getElementById("background").appendChild(idDom);
 document.getElementById("background").appendChild(setDom);
+
+
 let content = document.getElementById("section-content");
 let childNodes = content.childNodes;
-
 
 for (let i = 0; i < childNodes.length; i++) {
     downCard(childNodes[i].id.substring(childNodes[i].id.lastIndexOf("-") + 1))
@@ -13,7 +14,6 @@ for (let i = 0; i < childNodes.length; i++) {
 function downCard(unit_number) {
 
     let xml_http;
-
     if (window.XMLHttpRequest) {
         xml_http = new XMLHttpRequest();
     } else {
@@ -29,6 +29,7 @@ function downCard(unit_number) {
         'function': 'get_card_information',
         'card_id': unit_number
     }));
+
 
     xml_http.onreadystatechange = function () {
         if (xml_http.readyState === 4 && xml_http.status === 200) {
@@ -51,6 +52,7 @@ function downCard(unit_number) {
 
                         console.log(name1);
                         console.log(name2);
+
                         console.log("-------------------");
                     }
                 } else {
